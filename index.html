@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rugved Pednekar | Developer Portfolio</title>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font family -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom style for the experience timeline dot */
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -32px; /* Position next to the 4px border-l */
+            width: 1rem;
+            height: 1rem;
+            background-color: #8b5cf6; /* violet-500 */
+            border-radius: 50%;
+            margin-top: 0.25rem;
+            border: 4px solid #0f172a; /* slate-900 */
+            transition: background-color 0.3s;
+        }
+        .timeline-item:hover .timeline-dot::after {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100">
+
+    <!-- Navbar Container (Fixed Header) -->
+    <nav id="main-nav" class="fixed w-full z-30 bg-slate-900/30 backdrop-blur-lg shadow-lg border-b border-slate-700/50 h-20">
+        <!-- Dynamic Glow Element (injected and controlled by JS) -->
+        <div id="nav-glow" class="absolute inset-0 transition-opacity duration-300 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full relative z-10 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-extrabold text-white tracking-widest hover:text-violet-400 transition-colors">
+                RUGVED.ME
+            </a>
+            
+            <!-- Desktop Links -->
+            <div id="desktop-menu" class="hidden md:flex space-x-6">
+                <a href="#about" class="nav-link text-slate-300 hover:text-violet-400 px-3 py-2 rounded-md text-base font-medium transition-colors relative z-20">About</a>
+                <a href="#skills" class="nav-link text-slate-300 hover:text-violet-400 px-3 py-2 rounded-md text-base font-medium transition-colors relative z-20">Experience</a>
+                <a href="#experience" class="nav-link text-slate-300 hover:text-violet-400 px-3 py-2 rounded-md text-base font-medium transition-colors relative z-20">Skills</a>
+                <a href="#projects" class="nav-link text-slate-300 hover:text-violet-400 px-3 py-2 rounded-md text-base font-medium transition-colors relative z-20">Projects</a>
+                <a href="https://www.linkedin.com/in/rugved-pednekar-8b6569201/" target="_blank" class="bg-violet-600 hover:bg-violet-500 text-white px-4 py-2 rounded-full text-base font-medium transition-colors shadow-lg shadow-violet-500/50 relative z-20">
+                    Contact Me
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-400 hover:text-white focus:outline-none relative z-20" aria-expanded="false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path id="menu-icon-open" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    <path id="menu-icon-closed" class="block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Content -->
+        <div id="mobile-menu" class="md:hidden hidden bg-slate-800 shadow-xl relative z-10">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="nav-link block text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#skills" class="nav-link block text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#experience" class="nav-link block text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                <a href="#projects" class="nav-link block text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="mailto:rugved261@gmail.com" class="block w-full text-center bg-violet-600 hover:bg-violet-500 text-white px-3 py-2 rounded-md text-base font-medium transition-colors">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto">
+        
+        <!-- 1. HERO SECTION -->
+        <section id="hero" class="min-h-screen flex items-center justify-center p-4 pt-20">
+            <div class="text-center max-w-4xl">
+                <p class="text-xl text-violet-400 font-mono mb-4 animate-pulse">Personal Portfolio...</p>
+                <h1 class="text-5xl sm:text-7xl font-extrabold text-white leading-tight">
+                    I'm Rugved
+                </h1>
+                <h2 class="text-2xl sm:text-4xl font-light text-slate-300 mb-6">
+                    <span class="text-violet-400">&gt;</span> Master's Student | Full Stack & AI Developer
+                </h2>
+                <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-8">
+                    Just a student with a passion for building what's next.
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <a
+                        href="#projects"
+                        class="px-6 py-3 border border-violet-600 text-violet-400 font-semibold rounded-lg hover:bg-violet-900/50 transition-all duration-300 shadow-md shadow-violet-500/30"
+                    >
+                        View Projects
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/rugved-pednekar-8b6569201/" target="_blank"
+                        class="px-6 py-3 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-500 transition-all duration-300 shadow-md shadow-violet-500/50"
+                    >
+                        Get In Touch
+                    </a>
+                </div>
+                <div id="contact-icons" class="mt-12 flex justify-center space-x-6">
+                    <!-- Contact links will be inserted here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT/EDUCATION SECTION -->
+        <section id="about" class="min-h-screen pt-20 pb-16 px-4 sm:px-8 lg:px-16">
+            <h2 class="text-4xl font-bold mb-10 text-violet-400 border-b-2 border-violet-600 pb-2 inline-block">
+                About Me
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Career Snapshot (Glassmorphism card) -->
+                <div class="bg-slate-800/60 backdrop-blur-md p-6 rounded-xl shadow-2xl border border-slate-700 border-l-4 border-l-violet-500">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Summary</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        Hi, I’m a Master’s student in Computer Science with industry experience. I’m passionate about Deep Learning, React/TypeScript development, and building cloud-native systems on AWS and Kubernetes. I love turning complex ideas into scalable and impactful software.
+                    </p>
+                </div>
+                <!-- Education (Glassmorphism card) -->
+                <div class="bg-slate-800/60 backdrop-blur-md p-6 rounded-xl shadow-2xl border border-slate-700 border-l-4 border-l-violet-500">
+                    <h3 class="text-2xl font-semibold mb-4 text-white flex items-center">
+                        <!-- GraduationCap Icon (SVG) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-violet-400"><path d="M6 3v12c0 1.1.9 2 2 2h10" /><path d="M18 15V8c0-1.1-.9-2-2-2H8" /><circle cx="10" cy="20" r="2" /><circle cx="16" cy="4" r="2" /></svg> 
+                        Education
+                    </h3>
+                    <div class="space-y-4">
+                        <p class="text-lg font-medium text-white">University Of Hartford, CT</p>
+                        <p class="text-violet-400 font-light italic">Master of Science in Computer Science</p>
+                        <ul class="list-disc ml-5 text-slate-400 text-sm">
+                            <li>Relevant Coursework: Deep Learning, Data Mining, Information Assurance & Cryptography.</li>
+                        </ul>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-700 space-y-4">
+                         <p class="text-lg font-medium text-white">Thakur College of Science and Commerce, India</p>
+                        <p class="text-violet-400 font-light italic">Bachelor of Science in Computer Science (2019-2022) - CGPA: 8.33/10</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SKILLS SECTION (Content injected by JS) -->
+        <section id="skills" class="min-h-screen pt-20 pb-16 px-4 sm:px-8 lg:px-16">
+            <h2 class="text-4xl font-bold mb-10 text-violet-400 border-b-2 border-violet-600 pb-2 inline-block">
+                Technical Skills
+            </h2>
+            <div id="skills-container" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Skills cards will be dynamically inserted here -->
+            </div>
+        </section>
+        
+        <!-- 4. EXPERIENCE SECTION (Content injected by JS) -->
+        <section id="experience" class="min-h-screen pt-20 pb-16 px-4 sm:px-8 lg:px-16">
+            <h2 class="text-4xl font-bold mb-10 text-violet-400 border-b-2 border-violet-600 pb-2 inline-block">
+                Professional Experience
+            </h2>
+            <div id="experience-container" class="relative border-l-4 border-violet-600 space-y-12 pl-6">
+                <!-- Experience timeline will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- 5. PROJECTS SECTION (Content injected by JS) -->
+        <section id="projects" class="min-h-screen pt-20 pb-16 px-4 sm:px-8 lg:px-16">
+            <h2 class="text-4xl font-bold mb-10 text-violet-400 border-b-2 border-violet-600 pb-2 inline-block">
+                Showcase Projects
+            </h2>
+            <p class="text-xl text-slate-300 mb-8">Highlights of my work leveraging modern Cloud and AI technologies.</p>
+            <div id="projects-container" class="grid md:grid-cols-3 gap-8">
+                <!-- Project cards will be dynamically inserted here -->
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 border-t border-slate-800 mt-12 py-8 px-4 sm:px-8 lg:px-16 text-center">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-slate-400">
+            <p class="text-sm">&copy; <span id="current-year"></span> Rugved Pednekar</p>
+            <div id="footer-contact-icons" class="flex space-x-6 mt-4 sm:mt-0">
+                <!-- Footer contact links will be inserted here by JS -->
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Data Definitions ---
+        const personalData = {
+            name: "RUGVED PEDNEKAR",
+            title: "Master's Student | Full Stack & AI Developer",
+            tagline: "Leveraging Deep Learning and Cloud technologies to build innovative, high-performance solutions.",
+            contact: {
+                email: "rugved261@gmail.com",
+                linkedin: "https://www.linkedin.com/in/rugved-pednekar-8b6569201/", // Placeholder
+                github: "https://github.com/Rugvedpednekar",     // Placeholder
+                location: "Hartford, CT",
+            }
+        };
+
+        const skillCategories = [
+            { name: "Cloud & DevOps", icon: 'Cloud', skills: ["AWS (EC2, ECR, S3, RDS)", "Docker", "Kubernetes", "JIRA"] },
+            { name: "Languages & Core", icon: 'Code', skills: ["Python", "Typescript", "Java", "JavaScript", "C/C++", "R", "Kotlin"] },
+            { name: "Web & Frameworks", icon: 'Terminal', skills: ["React", "Redux", "NodeJS", "ExpressJS", "Django", "Flask", "REST API", "Spring MVC", "HTML5/CSS3"] },
+            { name: "Database & BI", icon: 'Database', skills: ["MongoDB", "MySQL", "Oracle", "PostgreSQL", "Tableau", "Power BI", "Advanced Excel"] },
+        ];
+
+        const experienceData = [
+            {
+                title: "IT Analyst",
+                company: "Morgan Stanley",
+                duration: "Oct 2023 - Aug 2024",
+                location: "Mumbai, India",
+                description: [
+                    "Managed proactive job monitoring and adhered to SOPs for issue escalation, ensuring continuous system uptime.",
+                    "Participated in major incident response calls, resolving critical technical issues and maintaining structured client communication.",
+                    "Gained significant experience in troubleshooting complex technical problems using internal tools and effective analytical methods."
+                ]
+            },
+            {
+                title: "Teaching Assistant",
+                company: "University Of Hartford",
+                duration: "Aug 2024 - May 2025",
+                location: "Hartford, CT",
+                description: [
+                    "Assisted in classroom teaching, coordinated lab activities, and provided critical support to students during lab sessions and office hours.",
+                    "Conducted tutorials, graded assignments, proctored exams, and monitored discussion boards for Computer Science coursework."
+                ]
+            },
+            {
+                title: "Graduate Assistant - Student Conduct & Conflict Resolution",
+                company: "University of Hartford",
+                duration: "Aug 2025 - Present",
+                location: "Hartford, CT",
+                description: [
+                    "Process and manage student conduct cases using Maxient software with high accuracy and attention to detail.",
+                    "Convert submitted incident reports into case files, ensuring strict compliance with university policies and protocols."
+                ]
+            },
+        ];
+
+        const projectsData = [
+            {
+                name: "Brain Tumor Detection using CNN",
+                tech: "Python, TensorFlow, Keras, OpenCV",
+                description: "Built a custom deep Convolutional Neural Network (CNN) for binary classification of MRI brain scans, achieving ~95% test accuracy. Implemented a complete MLOps pipeline including image preprocessing, data augmentation, batch normalization, model training, and rigorous evaluation (Confusion Matrix, F1-score)."
+            },
+            {
+                name: "Cloud-Based Threat Detection (Keylogger Simulation)",
+                tech: "Python, Flask, AWS EC2, Fernet, Tkinter",
+                description: "Simulated a secure, cloud-hosted keylogger that encrypts and transmits keystrokes to an AWS EC2-hosted Flask server for remote monitoring. Developed a complementary GUI-based detector using Tkinter to scan, identify, and securely terminate suspicious keylogger processes and files, demonstrating end-to-end security and deployment skills."
+            },
+            {
+                name: "Crypto Trading Bot",
+                tech: "Python, Binance API",
+                description: "Developed an automated trading bot that integrates directly with Binance's API to execute crypto trades based on real-time market data. Implemented sophisticated logic utilizing technical indicators and trading signals to optimize entry and exit points, demonstrating strong algorithm design and API integration capabilities."
+            },
+        ];
+
+        // Simple mapping for Lucide-like SVG icons
+        const IconSVG = {
+            Cloud: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-violet-400 mr-3"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>',
+            Code: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-violet-400 mr-3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
+            Terminal: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-violet-400 mr-3"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>',
+            Database: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-violet-400 mr-3"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>',
+            Linkedin: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>',
+            Github: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22V18C15 17.22 14.39 16.5 13.5 16.5H10.5C9.61 16.5 9 17.22 9 18V22"/><path d="M12 2C6.47 2 2 6.47 2 12C2 17.29 5.57 21.72 10.74 23.27C11.36 23.41 11.66 23.06 11.66 22.71V21.49C8.36 22.56 7.6 20.89 7.6 20.89C7.07 19.5 6.32 19.23 6.32 19.23C5.1 18.59 6.4 18.6 6.4 18.6C7.6 18.68 8.23 19.64 8.23 19.64C9.37 21.57 11.34 21.03 12.11 20.76C12.23 20.08 12.5 19.57 12.82 19.27C9.57 18.9 6.27 17.6 6.27 12.18C6.27 10.74 6.78 9.56 7.63 8.68C7.5 8.35 7.08 7.15 7.78 5.37C7.78 5.37 8.87 5.02 12 7.07C13.04 6.79 14.12 6.64 15.2 6.64C16.28 6.64 17.36 6.79 18.4 7.07C21.53 5.02 22.62 5.37 22.62 5.37C23.32 7.15 22.9 8.35 22.77 8.68C23.62 9.56 24.13 10.74 24.13 12.18C24.13 17.6 20.83 18.89 17.58 19.27C17.9 19.57 18.17 20.08 18.29 20.76V22.71C18.29 23.06 18.59 23.41 19.21 23.27C24.38 21.72 27.95 17.29 27.95 12C27.95 6.47 23.47 2 17.95 2H10.05C4.52 2 0.05 6.47 0.05 12C0.05 17.29 3.62 21.72 8.79 23.27C9.41 23.41 9.71 23.06 9.71 22.71V21.49C6.41 22.56 5.65 20.89 5.65 20.89"/></svg>',
+            Mail: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>',
+            ExternalLink: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 ml-2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>'
+        };
+
+        // --- Utility Functions ---
+        
+        // Function to create an icon link element
+        const createContactLink = (href, iconName, label) => {
+            // Adjust size for hero/footer icons
+            const iconSvg = IconSVG[iconName] ? IconSVG[iconName].replace('w-8 h-8', 'w-5 h-5').replace('w-4 h-4', 'w-5 h-5') : '';
+            return `
+                <a
+                    href="${href}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center space-x-2 text-slate-400 hover:text-violet-400 transition-colors"
+                    aria-label="${label}"
+                >
+                    ${iconSvg}
+                    <span class="hidden sm:inline">${label}</span>
+                </a>
+            `;
+        };
+
+        // Generates the Skills section HTML
+        const generateSkills = () => {
+            const container = document.getElementById('skills-container');
+            if (!container) return;
+
+            container.innerHTML = skillCategories.map(category => {
+                const skillsHtml = category.skills.map(skill => `
+                    <span class="text-sm bg-violet-900/50 text-violet-200 px-3 py-1 rounded-full font-medium border border-violet-700">
+                        ${skill}
+                    </span>
+                `).join('');
+
+                return `
+                    <div class="bg-slate-800/60 backdrop-blur-md p-6 rounded-xl shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 border border-slate-700 hover:border-violet-500">
+                        <div class="flex items-center mb-4">
+                            ${IconSVG[category.icon] || ''}
+                            <h3 class="text-xl font-bold text-white">${category.name}</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            ${skillsHtml}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        };
+
+        // Generates the Experience section HTML
+        const generateExperience = () => {
+            const container = document.getElementById('experience-container');
+            if (!container) return;
+
+            container.innerHTML = experienceData.map((job, index) => {
+                const descriptionHtml = job.description.map(point => `
+                    <li class="text-base">${point}</li>
+                `).join('');
+
+                return `
+                    <div class="relative group timeline-item">
+                        <div class="absolute w-4 h-4 rounded-full mt-1.5 -left-8 border-4 border-slate-900 timeline-dot"></div>
+                        <div class="bg-slate-800/60 backdrop-blur-md p-6 rounded-xl shadow-2xl border border-slate-700 transform hover:shadow-violet-500/20 transition-shadow duration-300">
+                            <h3 class="text-2xl font-semibold text-white">${job.title}</h3>
+                            <p class="text-violet-400 font-medium">${job.company}</p>
+                            <p class="text-sm text-gray-500 mb-4">${job.duration} | ${job.location}</p>
+                            <ul class="list-disc ml-5 space-y-2 text-slate-300">
+                                ${descriptionHtml}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        };
+
+        // Generates the Projects section HTML
+        const generateProjects = () => {
+            const container = document.getElementById('projects-container');
+            if (!container) return;
+
+            container.innerHTML = projectsData.map((project, index) => {
+                const techTags = project.tech.split(',').map(tech => `
+                    <span class="text-xs bg-slate-700 text-slate-300 px-2 py-0.5 rounded-full font-medium">
+                        ${tech.trim()}
+                    </span>
+                `).join('');
+                
+                // IconSVG['ExternalLink'] already contains the appropriate classes for the project card
+                const externalLinkIcon = IconSVG['ExternalLink'] ? IconSVG['ExternalLink'].replace('w-4 h-4', 'w-4 h-4').replace('ml-2', 'ml-2') : '';
+
+                return `
+                    <div class="bg-slate-800/60 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl transform hover:translate-y-[-5px] transition-all duration-300 border border-slate-700 hover:border-violet-500 flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-2xl font-bold text-violet-400 mb-2">${project.name}</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                ${techTags}
+                            </div>
+                            <p class="text-slate-300 leading-relaxed text-sm">${project.description}</p>
+                        </div>
+                        <div class="p-4 bg-slate-700/50 border-t border-slate-700">
+                            <a href="https://github.com/Rugvedpednekar?tab=repositories" target="_blank" class="text-violet-400 font-medium flex items-center hover:text-white transition-colors">
+                                View Details (Link Placeholder) ${externalLinkIcon}
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        };
+        
+        // Generates contact icons for Hero and Footer
+        const generateContactIcons = () => {
+            const heroContactLinks = [
+                { href: personalData.contact.linkedin, icon: 'Linkedin', label: 'LinkedIn' },
+                { href: personalData.contact.github, icon: 'Github', label: 'GitHub' },
+                { href: `mailto:${personalData.contact.email}`, icon: 'Mail', label: personalData.contact.email },
+            ];
+            
+            const heroContainer = document.getElementById('contact-icons');
+            if (heroContainer) heroContainer.innerHTML = heroContactLinks.map(link => createContactLink(link.href, link.icon, link.label)).join('');
+
+            // Footer contact links (fewer/different labels for space)
+            const footerContactLinks = [
+                { href: personalData.contact.linkedin, icon: 'Linkedin', label: 'LinkedIn' },
+                { href: personalData.contact.github, icon: 'Github', label: 'GitHub' },
+                { href: `mailto:${personalData.contact.email}`, icon: 'Mail', label: 'Email' },
+            ];
+            const footerContainer = document.getElementById('footer-contact-icons');
+            if (footerContainer) {
+                // Ensure the icon size is correct for the footer too
+                footerContainer.innerHTML = footerContactLinks.map(link => createContactLink(link.href, link.icon, link.label)).join('');
+            }
+        };
+
+
+        // --- Navbar and Glow Logic ---
+
+        const setupNavbar = () => {
+            const nav = document.getElementById('main-nav');
+            const glow = document.getElementById('nav-glow');
+
+            // Mouse tracking for the glow effect
+            const handleMouseMove = (event) => {
+                if (nav && glow) {
+                    const rect = nav.getBoundingClientRect();
+                    const mouseX = event.clientX - rect.left;
+                    const mouseY = event.clientY - rect.top;
+                    
+                    // Update the glow style (Violet, 30% opacity, 40% spread)
+                    glow.style.background = `radial-gradient(circle at ${mouseX}px ${mouseY}px, rgba(139, 92, 246, 0.3), transparent 60%)`;
+                }
+            };
+            window.addEventListener('mousemove', handleMouseMove);
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIconOpen = document.getElementById('menu-icon-open');
+            const menuIconClosed = document.getElementById('menu-icon-closed');
+
+            if (mobileMenuButton && mobileMenu && menuIconOpen && menuIconClosed) {
+                mobileMenuButton.addEventListener('click', () => {
+                    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                    mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                    mobileMenu.classList.toggle('hidden');
+                    menuIconOpen.classList.toggle('hidden');
+                    menuIconClosed.classList.toggle('hidden');
+                });
+
+                // Close mobile menu on link click
+                const navLinks = mobileMenu.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        // Use setTimeout to allow the smooth scroll to start before closing the menu
+                        setTimeout(() => {
+                             mobileMenu.classList.add('hidden');
+                             menuIconOpen.classList.add('hidden');
+                             menuIconClosed.classList.remove('hidden');
+                             mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        }, 300); // 300ms delay
+                    });
+                });
+            }
+        };
+
+        // --- Initialization ---
+
+        window.onload = () => {
+            // 1. Set current year in footer
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            // 2. Dynamically generate content sections
+            generateContactIcons();
+            generateSkills();
+            generateExperience();
+            generateProjects();
+            
+            // 3. Setup Navbar interactivity
+            setupNavbar();
+        };
+
+    </script>
+</body>
+</html>
